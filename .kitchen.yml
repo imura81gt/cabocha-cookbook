@@ -1,16 +1,24 @@
 ---
 driver:
   name: vagrant
+  customize:
+    memory: 1024
 
 provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-12.04
-  - name: centos-6.5
+  - name: CentOS-66
+    driver_config:
+      box: chef/centos-6.6
+  #- name: Ubuntu-10.04
+  #  driver_config:
+  #    box: chef/ubuntu-10.04
 
 suites:
   - name: default
     run_list:
       - recipe[cabocha::default]
     attributes:
+
+
